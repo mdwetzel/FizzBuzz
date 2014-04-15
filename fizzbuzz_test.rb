@@ -94,4 +94,26 @@ class FizzBuzzTest < Test::Unit::TestCase
       assert_not_equal "FizzBuzz", fizzbuzz.fizzbuzz?(i)
     end
   end
+
+  def test_fizzbuzz_method_correctly_returns_actual_number
+    fizzbuzz = FizzBuzz.new
+
+    # not multiples of 3, 5, or 15.
+    numbers = [1, 7, 11, 22, 67, 98]
+
+    numbers.each do |number|
+      assert_equal number, fizzbuzz.fizzbuzz?(number)
+    end
+  end
+
+  def test_fizzbuzz_method_incorrectly_returns_actual_number
+    fizzbuzz = FizzBuzz.new
+
+    # multiples of 3, 5, and 15.
+    numbers = [3, 5, 15, 25, 30, 33, 100]
+
+    numbers.each do |number|
+      assert_not_equal number, fizzbuzz.fizzbuzz?(number)
+    end
+  end 
 end
